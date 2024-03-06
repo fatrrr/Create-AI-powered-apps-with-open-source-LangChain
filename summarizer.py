@@ -20,7 +20,7 @@ if not os.path.exists(output_path):
 
 loader = TextLoader('stateoftheunion.txt')
 
-openai_api_key = "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"
+openai_api_key = ["OPENAI_API_KEY"]
 os.environ["OPENAI_API_KEY"] = openai_api_key
 
 # mengakses data
