@@ -2,7 +2,7 @@ import gradio as gr
 from langchain.prompts import PromptTemplate
 import os
 from langchain_openai import ChatOpenAI
-'''
+
 openai_api_key = "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"
 os.environ["OPENAI_API_KEY"] = openai_api_key
 
@@ -36,23 +36,3 @@ output = gr.Textbox(label="Template Surat")
 
 # Launch the Gradio interface
 gr.Interface(fn=generate_cover_letter, inputs=inputs, outputs=output).launch(server_name="0.0.0.0", server_port= 7860, share=True)
-'''
-
-# initialize the models
-openai = ChatOpenAI(
-    model_name="gpt-3.5-turbo",
-    openai_api_key="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"
-)
-
-def chatbot(user_input):
-    # defining a template
-    template = """Question: {question}
-    please provide step by step Answer:
-    """
-    prompt = PromptTemplate(template=template, input_variables=["question"])
-    formated_prompt =prompt.format(question=str(user_input))
-    return openai.invoke(formated_prompt).content
-
-demo = gr.Interface(fn=chatbot, inputs="text", outputs="text")
-
-demo.launch(share=True)

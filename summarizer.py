@@ -9,17 +9,18 @@ import sys
 sys.modules["sqlite3"] = sys.modules.pop("pysqlite3")
 
 # mengakses ke dokumen
-url = "https://raw.githubusercontent.com/Ichsan-Takwa/Generative-AI-Labs/main/Pembukaan_UUD_1945"
-output_path = "pembukaanUUD1945.txt"  # nama file lokal
-
+#url = "https://raw.githubusercontent.com/Ichsan-Takwa/Generative-AI-Labs/main/Pembukaan_UUD_1945"
+#output_path = "pembukaanUUD1945.txt"  # nama file lokal
+url = "https://raw.githubusercontent.com/Ichsan-Takwa/Generative-AI-Labs/main/state_of_the_union.txt"
+output_path = "stateoftheunion.txt"  # nama file lokal
 # Mengecek jika file sudah ada
 if not os.path.exists(output_path):
     # mengunduh file menggunakan wget
     wget.download(url, out=output_path)
 
-loader = TextLoader('pembukaanUUD1945.txt')
+loader = TextLoader('stateoftheunion.txt')
 
-openai_api_key = "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"
+openai_api_key = "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"
 os.environ["OPENAI_API_KEY"] = openai_api_key
 
 # mengakses data
